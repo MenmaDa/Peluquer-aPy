@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Crear Profesional
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Crear Profesional</h1>
+
+    <form method="POST" action="{% url 'agregarProfesional' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Servicios que puede realizar</label>
+            <select name="servicios" class="form-control" multiple required>
+                {% for servicio in servicios %}
+                    <option value="{{ servicio.id }}">
+                        {{ servicio.nombre }}
+                    </option>
+                {% endfor %}
+            </select>
+            <small class="text-muted">
+                Mantén Ctrl presionado para seleccionar varios.
+            </small>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Usuario</label>
+            <select name="usuario" class="form-control" required>
+                <option value="">Seleccione un usuario</option>
+                {% for user in users %}
+                    <option value="{{ user.id }}">
+                        {{ user.username }}
+                    </option>
+                {% endfor %}
+            </select>
+            <small class="text-muted">
+                Mantén Ctrl presionado para seleccionar varios.
+            </small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Crear</button>
+        <a href="{% url 'cita' %}" class="btn btn-secondary">Volver</a>
+    </form>
+</div>
+{% endblock %}

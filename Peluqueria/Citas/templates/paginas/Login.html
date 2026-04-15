@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/estilos.css' %}">
+    <title>Login y Registro</title>
+</head>
+<body>
+    
+    <main>
+        <!--Contenedor de todo-->
+        <div class="contenedor_Todo">
+        <!--Caja-->
+            <div class="cajas">
+                <!--Caja Izquierda-->
+                <div class="caja__Izquierda-Login">
+                    <h3>¿Ya tienes cuenta?</h3>
+                    <p>Incia sesión para entrar en la página</p>
+                    <button id="btn_iniciar-sesion">Iniciar Sesión</button>
+                </div>
+                <!--CajaDerecha-->
+                <div class="caja__Derecha-Registro">
+                    <h3>¿Aun no tienes una cuenta?</h3>
+                    <p>Registrate para que puedas inciar sesión</p>
+                    <button id="btn_registrarse">Registrate</button>
+                </div>
+            </div>
+            <!--Contenedor de los formularios de registro y login-->
+            <div class="contenedor__login-registro">
+               <!--Formulario de Login-->
+              <form action="{% url 'iniciarSesion' %}" method="POST" class="formulario__login">
+                {% csrf_token %}
+                <h2>Iniciar Sesión</h2>
+                <input type="text" placeholder="Nombre de usuario" name="Usuarios" required>
+                <input type="password" placeholder="Contraseña" name="password" required>
+                <button>Entrar</button>
+              </form>
+                <!--Formulario de Registro-->
+              <form method="POST" action="{% url 'registro' %}" class="formulario__Registro">
+                {% csrf_token %}
+                <h2>Registrarse</h2>
+                <select name="role" id="role" required>
+                    <option value="">Seleccione un Rol</option>
+                    <option value="admin">Administrador</option>
+                    <option value="user">Usuario</option>
+                </select>
+                <input type="text" placeholder="Nombre de usuario" name="Usuarios" required>
+                <input type="password" placeholder="Contraseña" name="password" required>
+                <button>Registrarse</button>
+              </form>
+            </div>
+        </div>
+
+    </main>
+<script src="{% static 'js/JavaScript.js' %}"></script>
+</body>
+</html>

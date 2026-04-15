@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Crear Cita
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Crear Cita</h1>
+
+    <!-- Mostrar mensajes -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-info">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST" action="{% url 'agregarCita' %}">
+        {% csrf_token %}
+
+        <!-- Servicio -->
+        <div class="mb-3">
+            <label for="servicio" class="form-label">Servicio</label>
+            <select name="servicio" id="servicio" class="form-control" required>
+                <option value="">Seleccione un servicio</option>
+                {% for servicio in servicios %}
+                    <option value="{{ servicio.id }}">{{ servicio.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Profesional -->
+        <div class="mb-3">
+            <label for="profesional" class="form-label">Profesional</label>
+            <select name="profesional" id="profesional" class="form-control" required disabled>
+                <option value="">Seleccione un profesional</option>
+            </select>
+        </div>
+
+        <!-- Fecha -->
+        <div class="mb-3">
+            <label for="fecha_cita" class="form-label">Fecha de la Cita</label>
+            <input type="datetime-local" class="form-control" id="fecha_cita" name="fecha_cita" required>
+        </div>
+
+        <!-- Prioridad -->
+        <div class="mb-3">
+            <label for="prioridad" class="form-label">Prioridad</label>
+            <select class="form-control" id="prioridad" name="prioridad" required>
+                <option value="">Seleccione una prioridad</option>
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Crear</button>
+        <a href="{% url 'cita' %}" class="btn btn-secondary">Volver</a>
+    </form>
+</div>
+
+<script src="{% static 'js/obtenerPro.js' %}"></script>
+
+{% endblock %}

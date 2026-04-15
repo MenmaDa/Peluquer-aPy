@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Crear Tarea
+{% endblock %}
+
+{% block content %}
+{% load static %}
+    <div class="container">
+        <h1>Editar Cita</h1>
+        <form method="POST" action="{% url 'editarTarea' tarea.id %}">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Título</label>
+                <input type="text" class="form-control" id="titulo" name="titulo" value="{{ tarea.titulo }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required>{{ tarea.descripcion }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="fecha_limite" class="form-label">Fecha Límite</label>
+                <input type="date" class="form-control" id="fecha_limite" name="fecha_limite" value="{{ tarea.fecha_limite }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="prioridad" class="form-label">Prioridad</label>
+                <select class="form-select" id="prioridad" name="prioridad" required>
+                    <option value="">Seleccione una prioridad</option>
+                    <option value="alta" {% if cita.prioridad == "alta" %}selected{% endif %}>Alta</option>
+                    <option value="media" {% if cita.prioridad == "media" %}selected{% endif %}>Media</option>
+                    <option value="baja" {% if cita.prioridad == "baja" %}selected{% endif %}>Baja</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

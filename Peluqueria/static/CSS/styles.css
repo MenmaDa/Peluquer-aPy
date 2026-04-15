@@ -1,0 +1,220 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0d0d1f;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero {
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  padding: 5rem 1rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #c86dd7;
+  margin-bottom: 0.5rem;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.hero span {
+  color: #f72585;
+  font-weight: bold;
+}
+
+.hero p {
+  color: #cccccc;
+  font-size: 1.1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  margin: 1rem 0.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: 0.3s ease-in-out;
+}
+
+.primary {
+  background: #7209b7;
+  color: #fff;
+}
+
+.primary:hover {
+  background: #560bad;
+}
+
+.secondary {
+  background: transparent;
+  border: 2px solid #f72585;
+  color: #f72585;
+}
+
+.secondary:hover {
+  background: #f72585;
+  color: #fff;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 2rem;
+  background: #1a1a2e;
+  text-align: center;
+}
+
+.stat strong {
+  font-size: 2.2rem;
+  color: #7209b7;
+}
+
+.features {
+  padding: 3rem 1rem;
+  background: #1c1c3a;
+}
+
+.features h2 {
+  font-size: 2.5rem;
+  color: #f72585;
+}
+
+.features p {
+  color: #cccccc;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #272755;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(247, 37, 133, 0.3);
+  transition: 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(247, 37, 133, 0.6);
+}
+
+.card h3 {
+  color: #c86dd7;
+}
+
+.process {
+  padding: 3rem 1rem;
+  background: #101027;
+}
+
+.process h2 {
+  color: #f72585;
+}
+
+.process ol {
+  text-align: left;
+  max-width: 800px;
+  margin: auto;
+  color: #cccccc;
+}
+
+.testimony {
+  background: #1e1e3f;
+  padding: 2rem;
+  text-align: center;
+}
+
+.testimony blockquote {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #f72585;
+}
+
+.testimony p {
+  color: #ffffff;
+  margin-top: 1rem;
+}
+
+.join {
+  background: linear-gradient(to right, #7209b7, #f72585);
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.join-btn {
+  background: #1a1a40;
+  color: #fff;
+  border-radius: 6px;
+  padding: 1rem 2rem;
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.join small {
+  display: block;
+  margin-top: 1rem;
+  color: #ffccf9;
+}
+
+footer {
+  background: #0e0e2c;
+  padding: 2rem;
+  color: #bbb;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer li {
+  margin-bottom: 0.5rem;
+}
+
+footer h4 {
+  margin-bottom: 1rem;
+  color: #f72585;
+}
+
+footer h3 {
+  color: #7209b7;
+}
+
+footer .copyright {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #777;
+}

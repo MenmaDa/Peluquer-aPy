@@ -1,0 +1,6 @@
+<form method="POST" action="{% url 'eliminarCita' cita.id %}">
+    {% csrf_token %}
+    <p>¿Estás seguro de que deseas eliminar la cita "{{ cita.servicio }}"?</p>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="{% url 'cita' %}" class="btn btn-secondary">Cancelar</a>
+</form>

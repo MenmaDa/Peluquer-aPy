@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Crear Tarea
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<h2>Verificador de URLs</h2>
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="url" placeholder="Ingrese la URL" style="width:300px;">
+    <button type="submit" class="btn btn-primary">Verificar</button>
+</form>
+
+<hr>
+
+{% if resultado %}
+    {% if resultado.error %}
+        <p style="color:red;">❌ Error: {{ resultado.error }}</p>
+    {% else %}
+        <p><strong>URL original:</strong> {{ resultado.url_original }}</p>
+
+        {% if resultado.https %}
+            <p style="color:green;">✔ Conexión segura (HTTPS)</p>
+        {% else %}
+            <p style="color:red;">✖ No usa HTTPS</p>
+        {% endif %}
+
+        {% if resultado.redirecciones %}
+            <h4>⚠ Redirecciones:</h4>
+            <ul>
+                {% for r in resultado.redirecciones %}
+                    <li>{{ r.desde }} → {{ r.hacia }} ({{ r.codigo }})</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>✔ No tiene redirecciones</p>
+        {% endif %}
+
+        <p><strong>URL final:</strong> {{ resultado.url_final }}</p>
+        <p><strong>Código HTTP:</strong> {{ resultado.codigo }}</p>
+    {% endif %}
+{% endif %}
+</div>
+{% endblock %}
+
+
+

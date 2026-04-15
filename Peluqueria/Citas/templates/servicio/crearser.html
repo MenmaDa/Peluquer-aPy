@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Crear Servicio
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Crear Servicio</h1>
+
+    <form method="POST" action="{% url 'agregarServicio' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <select name="nombre" id="" class="form-control" required>
+                <option value="">Seleccione un servicio</option>
+                <option value="Corte de Cabello">Corte de Cabello</option>
+                <option value="Tinte">Tinte</option>
+                <option value="manicure">Manicure</option>
+                <option value="Alisado">Alisado</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Precio</label>
+            <input type="number" step="0.01" class="form-control" name="precio" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Crear</button>
+        <a href="{% url 'cita' %}" class="btn btn-secondary">Volver</a>
+    </form>
+</div>
+{% endblock %}
